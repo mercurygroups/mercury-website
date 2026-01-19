@@ -20,7 +20,7 @@ if (apiKey) {
 export const generateTravelResponse = async (userPrompt: string, history: { role: string; text: string }[]): Promise<string> => {
   if (!ai) {
     console.error("GoogleGenAI not initialized. Missing API Key.");
-    return "Configuration Error: API Key is missing. Please contact support.";
+    return "System Error: The AI service is not configured correctly. Please contact support.";
   }
 
   try {
@@ -65,11 +65,16 @@ export const generateTravelResponse = async (userPrompt: string, history: { role
     console.error("Error calling Gemini API:", error);
     
     // Check for specific error indications
-    if (error.message) {
-        if (error.message.includes('API key') || error.message.includes('403')) {
+    if (error.message || error.toString()) {
+        const msg = (error.message || error.toString()).toLowerCase();
+        
+        if (msg.includes('leaked') || msg.includes('permission_denied')) {
+             return "SYSTEM ALERT: The API Key has been disabled by Google because it was leaked. The administrator must generate a new key in Google AI Studio.";
+        }
+        if (msg.includes('api key') || msg.includes('403')) {
             return "Connection Error: The provided API key is invalid or has expired. Please check your console for details.";
         }
-        if (error.message.includes('404')) {
+        if (msg.includes('404')) {
              return "Service Error: The AI model is currently unavailable. Please try again later.";
         }
     }

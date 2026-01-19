@@ -87,7 +87,7 @@ const App: React.FC = () => {
       description: 'Fast-track processing and renewal assistance for international passports.',
       icon: <Globe className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://pngimg.com/uploads/passport/passport_PNG100002.png'
+      image: 'https://images.unsplash.com/photo-1549673934-297e2501a402?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'visa',
@@ -103,7 +103,7 @@ const App: React.FC = () => {
       description: 'Explore our premium fleet of SUVs, Sedans, and Supercars for your comfort.',
       icon: <CarIcon className="w-8 h-8" />,
       category: 'luxury',
-      image: 'https://carwow-uk-wp-3.imgix.net/New-Lamborghini-Urus-SE-lead.png'
+      image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'jets',
@@ -111,7 +111,7 @@ const App: React.FC = () => {
       description: 'Exclusive private jet rentals for executive travel comfort and privacy.',
       icon: <Plane className="w-8 h-8 rotate-45" />,
       category: 'luxury',
-      image: 'https://assets.paramountbusinessjets.com/media/private-jet-charter-hero-bg2.jpg'
+      image: 'https://images.unsplash.com/photo-1540962351574-729f633c78f0?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'logistics',
@@ -119,7 +119,7 @@ const App: React.FC = () => {
       description: 'Fast delivery bikes for goods in Lagos, Port Harcourt, and Abuja.',
       icon: <Bike className="w-8 h-8" />,
       category: 'logistics',
-      image: 'https://msmeafricaonline.com/wp-content/uploads/2020/07/DISPTACH-RIDERS.jpg'
+      image: 'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'insurance',
@@ -144,7 +144,7 @@ const App: React.FC = () => {
       id: 'lambo-urus',
       name: 'Lamborghini Urus',
       category: 'Sport',
-      image: 'https://carwow-uk-wp-3.imgix.net/New-Lamborghini-Urus-SE-lead.png',
+      image: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80',
       features: ['650 HP', '0-60 in 3.6s', 'Leather Interior', 'Premium Sound'],
       priceRange: 'High'
     },
@@ -160,7 +160,7 @@ const App: React.FC = () => {
       id: 's-class',
       name: 'Mercedes-Benz S-Class',
       category: 'Sedan',
-      image: 'https://cdn.guardian.ng/wp-content/uploads/2018/02/Mercedes-Benz-S-Class.jpg',
+      image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80',
       features: ['Executive comfort', 'Massage seats', 'Advanced safety', 'Smooth ride'],
       priceRange: 'Medium'
     },
@@ -168,7 +168,7 @@ const App: React.FC = () => {
       id: 'land-cruiser',
       name: 'Toyota Land Cruiser',
       category: 'SUV',
-      image: 'https://www.nairaland.com/attachments/17109976_3de1936babf748a382b807d5011f7416_jpeg_jpegccd12bbc93b9fc8542f47e04902ca4a6',
+      image: 'https://images.unsplash.com/photo-1594502184342-2b54227d870c?auto=format&fit=crop&w=800&q=80',
       features: ['Reliable', 'All-terrain', '7 Seater', 'Bulletproof options available'],
       priceRange: 'Medium'
     },
@@ -176,7 +176,7 @@ const App: React.FC = () => {
       id: 'hiace-bus',
       name: 'Toyota HiAce Luxury',
       category: 'Bus',
-      image: 'https://baze.co.id/wp-content/uploads/2023/03/DSC02878-scaled.jpg',
+      image: 'https://images.unsplash.com/photo-1625916053360-1e5b8e957386?auto=format&fit=crop&w=800&q=80',
       features: ['14 Seater', 'High roof', 'AC', 'Interstate travel'],
       priceRange: 'Low'
     },
@@ -244,7 +244,7 @@ const App: React.FC = () => {
     <div className="relative bg-brand-black text-white py-24 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1483450389192-3d3a06dfef49?auto=format&fit=crop&w=1920&q=80" 
+          src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80" 
           alt="Travel Hero" 
           className="w-full h-full object-cover opacity-40"
         />
@@ -423,7 +423,7 @@ const App: React.FC = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-brand-blue/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500"></div>
             <img 
-              src="https://msmeafricaonline.com/wp-content/uploads/2020/07/DISPTACH-RIDERS.jpg" 
+              src="https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80" 
               alt="Delivery Rider" 
               className="relative rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition duration-500"
             />
