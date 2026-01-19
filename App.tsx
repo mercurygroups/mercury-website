@@ -23,8 +23,6 @@ import { ViewState, ServiceItem, Car } from './types';
 // Toggle to use remote Unsplash fit URLs instead of local images.
 // Set to `true` to load remote Unsplash images (may increase network requests).
 const USE_REMOTE_IMAGES = true;
-
-      image: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80',
 // Update values here to point to the Unsplash image you prefer for each local asset.
 const IMAGE_FIT_URLS: Record<string, string> = {
   'photo-1506012787146-f92b2d7d6d96.svg': 'https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80',
