@@ -8,19 +8,23 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, (process as any).cwd(), '');
 
   // Check for various common naming conventions for the API key
-  // We prioritize keys found in .env files or system environment variables
   const apiKey = env.GEMINI_API_KEY || 
                  env.VITE_GEMINI_API_KEY || 
                  env.API_KEY || 
                  env.VITE_API_KEY || 
                  process.env.GEMINI_API_KEY || 
                  process.env.API_KEY || 
-                 ''; // No hardcoded fallback to prevent using invalid keys
+                 ''; 
 
   return {
+    base: '/', // Ensure assets are loaded from root
     plugins: [react()],
     define: {
       'process.env.API_KEY': JSON.stringify(apiKey.trim())
+    },
+    build: {
+      outDir: 'dist',
+      sourcemap: false
     }
   };
 });
