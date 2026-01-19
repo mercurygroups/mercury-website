@@ -372,14 +372,14 @@ const App: React.FC = () => {
       </div>
     </section>
   );
+  const renderLogistics = () => (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">Swift Delivery Services</h2>
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed">Efficient bike delivery services for goods and documents in Lagos, Abuja, and Port Harcourt.</p>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">
-              Swift Delivery Services
-            </h2>
-            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Efficient bike delivery services for goods and documents in Lagos, Abuja, and Port Harcourt.
-            </p>
-            
             <div className="space-y-4 mb-8">
               <div className="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-brand-blue/30 transition">
                 <MapPin className="text-brand-blue w-6 h-6 mr-4" />
@@ -404,18 +404,23 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <button onClick={() => setView(ViewState.CONTACT)} className="bg-brand-black text-white px-8 py-3 rounded-lg hover:bg-brand-blue transition font-medium shadow-lg">
-              Request Delivery
-            </button>
+            <button onClick={() => setView(ViewState.CONTACT)} className="bg-brand-black text-white px-8 py-3 rounded-lg hover:bg-brand-blue transition font-medium shadow-lg">Request Delivery</button>
           </div>
+
           <div className="relative group">
             <div className="absolute -inset-4 bg-brand-blue/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500"></div>
-            <img 
-              src={'/images/logistics-delivery.png'} 
-              alt="Delivery Rider" 
+            <img
+              src={'/images/logistics-delivery.png'}
+              alt="Delivery Rider"
               onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
               className="relative rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition duration-500 grayscale hover:grayscale-0"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+  const renderContact = () => (
     <section className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
