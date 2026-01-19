@@ -1,9 +1,10 @@
 module.exports = {
   content: [
     './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
+    './*.{js,ts,jsx,tsx,html}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './**/*.{html,tsx,ts,jsx,js}'
+    './services/**/*.{js,ts,jsx,tsx}',
+    './public/**/*.{html,js}'
   ],
   theme: {
     extend: {

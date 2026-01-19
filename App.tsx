@@ -246,6 +246,7 @@ const App: React.FC = () => {
         <img 
           src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80" 
           alt="Travel Hero" 
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
           className="w-full h-full object-cover opacity-40 grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-transparent"></div>
@@ -295,6 +296,7 @@ const App: React.FC = () => {
                 <img 
                   src={service.image} 
                   alt={service.title}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
                   className="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -328,6 +330,7 @@ const App: React.FC = () => {
                 <img 
                   src={car.image} 
                   alt={car.name} 
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90"
                 />
                 <div className="absolute top-4 right-4 bg-brand-black/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
@@ -406,6 +409,7 @@ const App: React.FC = () => {
             <img 
               src="https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80" 
               alt="Delivery Rider" 
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
               className="relative rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition duration-500 grayscale hover:grayscale-0"
             />
           </div>
