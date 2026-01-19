@@ -304,8 +304,10 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-         <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+    );
+
+    const renderServicesGrid = () => (
+           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
            Flight Processing • Passport Processing • Visa Assistance
          </p>
         </div>
@@ -338,6 +340,16 @@ const App: React.FC = () => {
         </div>
       </div>
     </section>
+  );
+
+        </div>
+
+  const renderFleet = () => (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-brand-black">Premium Fleet</h2>
+          <p className="text-gray-600 mt-2">Luxury vehicles for interstate travel and comfort.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -376,8 +388,8 @@ const App: React.FC = () => {
         </div>
       </div>
     </section>
-              Mercury Logistics
-            </div>
+  );
+
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">
               Swift Delivery Services
             </h2>
