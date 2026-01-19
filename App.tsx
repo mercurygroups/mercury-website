@@ -27,23 +27,23 @@ import AIChat from './components/AIChat';
 const USE_REMOTE_IMAGES = true;
 // Update values here to point to the Unsplash image you prefer for each local asset.
 const IMAGE_FIT_URLS: Record<string, string> = {
-  'photo-1506012787146-f92b2d7d6d96.svg': 'https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80',
-  'photo-1436491865332-7a61a109cc05.svg': 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80',
-  'photo-1549673934-297e2501a402.svg': 'https://images.unsplash.com/photo-1549673934-297e2501a402?auto=format&fit=crop&w=800&q=80',
-    'photo-1587825140708-dfaf72ae4b04.svg': 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80',
-    'photo-1550355291-bbee04a92027.svg': 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80',
-  'photo-1540962351574-729f633c78f0.svg': 'https://images.unsplash.com/photo-1540962351574-729f633c78f0?auto=format&fit=crop&w=800&q=80',
-  'photo-1616432043562-3671ea0e5e85.svg': 'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80',
-  'photo-1454165804606-c3d57bc86b40.svg': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
-  'photo-1469854523086-cc02fe5d8800.svg': 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80',
+  'photo-1506012787146-f92b2d7d6d96.svg': 'https://source.unsplash.com/1920x1080/?travel,airplane',
+  'photo-1436491865332-7a61a109cc05.svg': 'https://source.unsplash.com/800x600/?flight,airport',
+  'photo-1549673934-297e2501a402.svg': 'https://source.unsplash.com/800x600/?passport,documents',
+    'photo-1587825140708-dfaf72ae4b04.svg': 'https://source.unsplash.com/800x600/?visa,travel',
+    'photo-1550355291-bbee04a92027.svg': 'https://source.unsplash.com/800x600/?car,luxury',
+  'photo-1540962351574-729f633c78f0.svg': 'https://source.unsplash.com/800x600/?chauffeur,car',
+  'photo-1616432043562-3671ea0e5e85.svg': 'https://source.unsplash.com/800x600/?delivery,scooter',
+  'photo-1454165804606-c3d57bc86b40.svg': 'https://source.unsplash.com/800x600/?insurance,travel',
+  'photo-1469854523086-cc02fe5d8800.svg': 'https://source.unsplash.com/800x600/?tour,beach',
   // fleet images
-  'photo-1621135802920-133df287f89c.svg': 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80',
-  'photo-1618843479313-40f8afb4b4d8.svg': 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80',
-  'toyota-land-cruiser.png': 'https://images.unsplash.com/photo-1594502184342-2b54227d870c?auto=format&fit=crop&w=800&q=80',
-  'toyota-hiace-luxury.png': 'https://images.unsplash.com/photo-1625916053360-1e5b8e957386?auto=format&fit=crop&w=800&q=80',
-  'private-jet.png': 'https://images.unsplash.com/photo-1520031441872-265e4ff70366?auto=format&fit=crop&w=800&q=80',
-  'logistics-delivery.png': 'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80',
-  'photo-1533473359331-0135ef1b58bf.svg': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80'
+  'photo-1621135802920-133df287f89c.svg': 'https://source.unsplash.com/800x600/?supercar',
+  'photo-1618843479313-40f8afb4b4d8.svg': 'https://source.unsplash.com/800x600/?sedan',
+  'toyota-land-cruiser.png': 'https://source.unsplash.com/800x600/?toyota,land%20cruiser',
+  'toyota-hiace-luxury.png': 'https://source.unsplash.com/800x600/?toyota,hiace',
+  'private-jet.png': 'https://source.unsplash.com/800x600/?private,jet',
+  'logistics-delivery.png': 'https://source.unsplash.com/800x600/?delivery,scooter',
+  'photo-1533473359331-0135ef1b58bf.svg': 'https://source.unsplash.com/800x600/?lexus,luxury'
 };
 
 function getImageSrc(localPath: string) {
