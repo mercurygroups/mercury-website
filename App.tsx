@@ -84,7 +84,7 @@ const App: React.FC = () => {
     },
     {
       id: 'passport',
-      title: 'Passport Services',
+      title: 'Passport Processing',
       description: 'Fast-track processing and renewal assistance for international passports.',
       icon: <Globe className="w-8 h-8" />,
       category: 'travel',
@@ -258,7 +258,7 @@ const App: React.FC = () => {
             Processing of <span className="text-brand-lightBlue">Domestic & International Flights</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed">
-            We handle everything from Flight Processing and Visa Assistance to Passport Renewals. 
+            We specialize in the <strong>processing of flight domestic and international</strong> and the <strong>processing of passport</strong> applications. 
             Experience premium logistics and luxury rentals in Nigeria.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
