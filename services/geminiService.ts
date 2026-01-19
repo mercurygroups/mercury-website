@@ -1,19 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Trim the API key to remove any accidental whitespace from environment variables
-const apiKey = (process.env.API_KEY || '').trim();
-
-if (!apiKey) {
-  console.warn("API Key is missing. AI features will not work. Please set GEMINI_API_KEY or API_KEY in your environment variables.");
-}
-
-const ai = new GoogleGenAI({ apiKey });
+// Initialize AI with the key directly as per guidelines.
+// process.env.API_KEY is replaced by Vite's define plugin at build time.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const generateTravelResponse = async (userPrompt: string, history: { role: string; text: string }[]): Promise<string> => {
-  if (!apiKey) {
-    return "I am unable to connect to the server right now (Missing API Key). Please contact support.";
-  }
-
   try {
     const model = 'gemini-3-flash-preview';
     
@@ -55,9 +46,14 @@ export const generateTravelResponse = async (userPrompt: string, history: { role
   } catch (error: any) {
     console.error("Error calling Gemini API:", error);
     
-    // Check for specific error indications (invalid key, permission denied)
-    if (error.message && (error.message.includes('API key') || error.message.includes('403') || error.message.includes('400'))) {
-      return "Configuration Error: The API key provided is invalid. Please check your settings.";
+    // Check for specific error indications
+    if (error.message) {
+        if (error.message.includes('API key') || error.message.includes('403')) {
+            return "Connection Error: The provided API key is invalid or has expired. Please check your console for details.";
+        }
+        if (error.message.includes('404')) {
+             return "Service Error: The AI model is currently unavailable. Please try again later.";
+        }
     }
     
     return "I am currently experiencing high traffic. Please try again later or contact support directly.";

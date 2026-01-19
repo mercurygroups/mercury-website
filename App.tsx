@@ -65,12 +65,11 @@ const App: React.FC = () => {
     const subject = `Inquiry: ${service} - ${name}`;
     const body = `Name: ${name}\nService Interest: ${service}\n\nMessage:\n${message}`;
     
-    // Use CC for the second email to ensure better compatibility with email clients
+    // Primary email for contact
     const emailTo = "mercurygroups247@gmail.com";
-    const emailCc = "chisomlifeeke@gmail.com";
     
     // Construct the mailto link
-    window.location.href = `mailto:${emailTo}?cc=${emailCc}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const services: ServiceItem[] = [
@@ -80,7 +79,7 @@ const App: React.FC = () => {
       description: 'Expert processing of Domestic and International flight tickets with best rate guarantees.',
       icon: <Plane className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80' // Airplane wing view
+      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'passport',
@@ -88,7 +87,7 @@ const App: React.FC = () => {
       description: 'Fast-track processing and renewal assistance for international passports.',
       icon: <Globe className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1555214068-4b9dc8c6dfd4?auto=format&fit=crop&w=800&q=80' // Single Passport Cover
+      image: 'https://pngimg.com/uploads/passport/passport_PNG100002.png'
     },
     {
       id: 'visa',
@@ -96,7 +95,7 @@ const App: React.FC = () => {
       description: 'Expert guidance for tourist, conference, and business visas to global destinations.',
       icon: <FileCheck className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1569949381149-d9d3c132a27a?auto=format&fit=crop&w=800&q=80' // Visa/Passport close up
+      image: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cars',
@@ -104,7 +103,7 @@ const App: React.FC = () => {
       description: 'Explore our premium fleet of SUVs, Sedans, and Supercars for your comfort.',
       icon: <CarIcon className="w-8 h-8" />,
       category: 'luxury',
-      image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80' // Luxury car interior dark
+      image: 'https://carwow-uk-wp-3.imgix.net/New-Lamborghini-Urus-SE-lead.png'
     },
     {
       id: 'jets',
@@ -112,7 +111,7 @@ const App: React.FC = () => {
       description: 'Exclusive private jet rentals for executive travel comfort and privacy.',
       icon: <Plane className="w-8 h-8 rotate-45" />,
       category: 'luxury',
-      image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80' // Private Jet Interior
+      image: 'https://assets.paramountbusinessjets.com/media/private-jet-charter-hero-bg2.jpg'
     },
     {
       id: 'logistics',
@@ -120,7 +119,7 @@ const App: React.FC = () => {
       description: 'Fast delivery bikes for goods in Lagos, Port Harcourt, and Abuja.',
       icon: <Bike className="w-8 h-8" />,
       category: 'logistics',
-      image: 'https://images.unsplash.com/photo-1561582209-6638423232f9?auto=format&fit=crop&w=800&q=80' // Lagos Traffic (Bus/Street context)
+      image: 'https://msmeafricaonline.com/wp-content/uploads/2020/07/DISPTACH-RIDERS.jpg'
     },
     {
       id: 'insurance',
@@ -128,7 +127,7 @@ const App: React.FC = () => {
       description: 'Comprehensive travel insurance policies to keep you protected abroad.',
       icon: <ShieldCheck className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80' // Planning/Laptop
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'tours',
@@ -136,7 +135,7 @@ const App: React.FC = () => {
       description: 'Curated holiday and conference packages tailored to your needs.',
       icon: <MapPin className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=800&q=80' // Tropical rain
+      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80'
     }
   ];
 
@@ -145,7 +144,7 @@ const App: React.FC = () => {
       id: 'lambo-urus',
       name: 'Lamborghini Urus',
       category: 'Sport',
-      image: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80',
+      image: 'https://carwow-uk-wp-3.imgix.net/New-Lamborghini-Urus-SE-lead.png',
       features: ['650 HP', '0-60 in 3.6s', 'Leather Interior', 'Premium Sound'],
       priceRange: 'High'
     },
@@ -161,7 +160,7 @@ const App: React.FC = () => {
       id: 's-class',
       name: 'Mercedes-Benz S-Class',
       category: 'Sedan',
-      image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80',
+      image: 'https://cdn.guardian.ng/wp-content/uploads/2018/02/Mercedes-Benz-S-Class.jpg',
       features: ['Executive comfort', 'Massage seats', 'Advanced safety', 'Smooth ride'],
       priceRange: 'Medium'
     },
@@ -169,7 +168,7 @@ const App: React.FC = () => {
       id: 'land-cruiser',
       name: 'Toyota Land Cruiser',
       category: 'SUV',
-      image: 'https://images.unsplash.com/photo-1594502184342-2e12f877aa71?auto=format&fit=crop&w=800&q=80',
+      image: 'https://www.nairaland.com/attachments/17109976_3de1936babf748a382b807d5011f7416_jpeg_jpegccd12bbc93b9fc8542f47e04902ca4a6',
       features: ['Reliable', 'All-terrain', '7 Seater', 'Bulletproof options available'],
       priceRange: 'Medium'
     },
@@ -177,7 +176,7 @@ const App: React.FC = () => {
       id: 'hiace-bus',
       name: 'Toyota HiAce Luxury',
       category: 'Bus',
-      image: 'https://images.unsplash.com/photo-1625055694784-60c774b73520?auto=format&fit=crop&w=800&q=80',
+      image: 'https://baze.co.id/wp-content/uploads/2023/03/DSC02878-scaled.jpg',
       features: ['14 Seater', 'High roof', 'AC', 'Interstate travel'],
       priceRange: 'Low'
     },
@@ -245,9 +244,9 @@ const App: React.FC = () => {
     <div className="relative bg-brand-black text-white py-24 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80" 
+          src="https://images.unsplash.com/photo-1483450389192-3d3a06dfef49?auto=format&fit=crop&w=1920&q=80" 
           alt="Travel Hero" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent"></div>
       </div>
@@ -424,7 +423,7 @@ const App: React.FC = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-brand-blue/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500"></div>
             <img 
-              src="https://images.unsplash.com/photo-1561582209-6638423232f9?auto=format&fit=crop&w=1000&q=80" 
+              src="https://msmeafricaonline.com/wp-content/uploads/2020/07/DISPTACH-RIDERS.jpg" 
               alt="Delivery Rider" 
               className="relative rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition duration-500"
             />
@@ -454,14 +453,13 @@ const App: React.FC = () => {
                   <div className="flex flex-col">
                     <p className="text-sm text-gray-400">Email</p>
                     <a href="mailto:mercurygroups247@gmail.com" className="font-medium hover:text-brand-lightBlue transition">mercurygroups247@gmail.com</a>
-                    <a href="mailto:chisomlifeeke@gmail.com" className="font-medium hover:text-brand-lightBlue transition">chisomlifeeke@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Phone className="w-6 h-6 text-brand-lightBlue mt-1" />
                   <div>
                     <p className="text-sm text-gray-400">Phone</p>
-                    <p className="font-medium">+234 800 MERCURY</p>
+                    <p className="font-medium">+234 901 190 2882</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
