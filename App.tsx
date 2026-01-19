@@ -111,7 +111,7 @@ const App: React.FC = () => {
       description: 'Exclusive private jet rentals for executive travel.',
       icon: <Plane className="w-8 h-8 rotate-45" />,
       category: 'luxury',
-      image: '/images/photo-1540962351574-729f633c78f0.svg'
+      image: '/images/private%20jet.png'
     },
     {
       id: 'logistics',
@@ -119,7 +119,7 @@ const App: React.FC = () => {
       description: 'Fast delivery bikes for goods in Lagos, Port Harcourt, and Abuja.',
       icon: <Bike className="w-8 h-8" />,
       category: 'logistics',
-      image: '/images/photo-1616432043562-3671ea0e5e85.svg'
+      image: '/images/logitics%20and%20delivery%20.png'
     },
     {
       id: 'insurance',
@@ -176,7 +176,7 @@ const App: React.FC = () => {
       id: 'hiace-bus',
       name: 'Toyota HiAce Luxury',
       category: 'Bus',
-      image: '/images/photo-1625916053360-1e5b8e957386.svg',
+      image: '/images/Toyota%20HiAce%20Luxury%2Cpng',
       features: ['14 Seater', 'High roof', 'AC', 'Interstate travel'],
       priceRange: 'Low'
     },
@@ -188,14 +188,14 @@ const App: React.FC = () => {
       features: ['Luxury finish', 'Off-road ready', 'Spacious', 'Quiet cabin'],
       priceRange: 'High'
     }
-  ];
-
-  const renderHeader = () => (
-    <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center cursor-pointer" onClick={() => setView(ViewState.HOME)}>
-            <div className="w-10 h-10 bg-brand-black rounded-lg flex items-center justify-center mr-3 shadow-md">
+    {
+      id: 'land-cruiser',
+      name: 'Toyota Land Cruiser',
+      category: 'SUV',
+      image: '/images/Toyota%20Land%20Cruiser.png',
+      features: ['Reliable', 'All-terrain', '7 Seater', 'Bulletproof options available'],
+      priceRange: 'Medium'
+    },
               <span className="text-white font-bold text-xl">M</span>
             </div>
             <div>
