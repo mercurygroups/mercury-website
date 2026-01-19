@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mercury-groups.onrender.com/sitemap.xml

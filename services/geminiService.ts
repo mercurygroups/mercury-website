@@ -1,9 +1,19 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.API_KEY || '';
+// Trim the API key to remove any accidental whitespace from environment variables
+const apiKey = (process.env.API_KEY || '').trim();
+
+if (!apiKey) {
+  console.warn("API Key is missing. AI features will not work. Please set GEMINI_API_KEY or API_KEY in your environment variables.");
+}
+
 const ai = new GoogleGenAI({ apiKey });
 
 export const generateTravelResponse = async (userPrompt: string, history: { role: string; text: string }[]): Promise<string> => {
+  if (!apiKey) {
+    return "I am unable to connect to the server right now (Missing API Key). Please contact support.";
+  }
+
   try {
     const model = 'gemini-3-flash-preview';
     
@@ -42,8 +52,14 @@ export const generateTravelResponse = async (userPrompt: string, history: { role
     });
 
     return response.text || "I'm sorry, I couldn't generate a response at this time.";
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error calling Gemini API:", error);
+    
+    // Check for specific error indications (invalid key, permission denied)
+    if (error.message && (error.message.includes('API key') || error.message.includes('403') || error.message.includes('400'))) {
+      return "Configuration Error: The API key provided is invalid. Please check your settings.";
+    }
+    
     return "I am currently experiencing high traffic. Please try again later or contact support directly.";
   }
 };
