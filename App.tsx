@@ -79,7 +79,7 @@ const App: React.FC = () => {
       description: 'Domestic and International flight tickets with best rate guarantees.',
       icon: <Plane className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1436491865332-7a61a109cc05.svg'
     },
     {
       id: 'passport',
@@ -87,7 +87,7 @@ const App: React.FC = () => {
       description: 'Fast-track processing and renewal assistance for international passports.',
       icon: <Globe className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1549673934-297e2501a402?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1549673934-297e2501a402.svg'
     },
     {
       id: 'visa',
@@ -95,7 +95,7 @@ const App: React.FC = () => {
       description: 'Expert guidance for tourist, conference, and business visas.',
       icon: <FileCheck className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1587825140708-dfaf72ae4b04.svg'
     },
     {
       id: 'cars',
@@ -103,7 +103,7 @@ const App: React.FC = () => {
       description: 'Explore our premium fleet of SUVs, Sedans, and Supercars.',
       icon: <CarIcon className="w-8 h-8" />,
       category: 'luxury',
-      image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1550355291-bbee04a92027.svg'
     },
     {
       id: 'jets',
@@ -111,7 +111,7 @@ const App: React.FC = () => {
       description: 'Exclusive private jet rentals for executive travel.',
       icon: <Plane className="w-8 h-8 rotate-45" />,
       category: 'luxury',
-      image: 'https://images.unsplash.com/photo-1540962351574-729f633c78f0?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1540962351574-729f633c78f0.svg'
     },
     {
       id: 'logistics',
@@ -119,7 +119,7 @@ const App: React.FC = () => {
       description: 'Fast delivery bikes for goods in Lagos, Port Harcourt, and Abuja.',
       icon: <Bike className="w-8 h-8" />,
       category: 'logistics',
-      image: 'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1616432043562-3671ea0e5e85.svg'
     },
     {
       id: 'insurance',
@@ -127,7 +127,7 @@ const App: React.FC = () => {
       description: 'Comprehensive travel insurance policies to keep you protected.',
       icon: <ShieldCheck className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1454165804606-c3d57bc86b40.svg'
     },
     {
       id: 'tours',
@@ -135,7 +135,7 @@ const App: React.FC = () => {
       description: 'Curated holiday and conference packages tailored to your needs.',
       icon: <MapPin className="w-8 h-8" />,
       category: 'travel',
-      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80'
+      image: '/images/photo-1469854523086-cc02fe5d8800.svg'
     }
   ];
 
@@ -144,7 +144,7 @@ const App: React.FC = () => {
       id: 'lambo-urus',
       name: 'Lamborghini Urus',
       category: 'Sport',
-      image: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80',
+      image: '/images/photo-1621135802920-133df287f89c.svg',
       features: ['650 HP', '0-60 in 3.6s', 'Leather Interior', 'Premium Sound'],
       priceRange: 'High'
     },
@@ -152,7 +152,7 @@ const App: React.FC = () => {
       id: 'g-wagon',
       name: 'Mercedes-Benz G-Wagon',
       category: 'SUV',
-      image: 'https://images.unsplash.com/photo-1520031441872-265e4ff70366?auto=format&fit=crop&w=800&q=80',
+      image: '/images/photo-1520031441872-265e4ff70366.svg',
       features: ['Off-road capability', 'Luxury interior', 'Spacious', 'Iconic design'],
       priceRange: 'High'
     },
@@ -160,7 +160,7 @@ const App: React.FC = () => {
       id: 's-class',
       name: 'Mercedes-Benz S-Class',
       category: 'Sedan',
-      image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80',
+      image: '/images/photo-1618843479313-40f8afb4b4d8.svg',
       features: ['Executive comfort', 'Massage seats', 'Advanced safety', 'Smooth ride'],
       priceRange: 'Medium'
     },
@@ -168,7 +168,7 @@ const App: React.FC = () => {
       id: 'land-cruiser',
       name: 'Toyota Land Cruiser',
       category: 'SUV',
-      image: 'https://images.unsplash.com/photo-1594502184342-2b54227d870c?auto=format&fit=crop&w=800&q=80',
+      image: '/images/photo-1594502184342-2b54227d870c.svg',
       features: ['Reliable', 'All-terrain', '7 Seater', 'Bulletproof options available'],
       priceRange: 'Medium'
     },
@@ -176,7 +176,7 @@ const App: React.FC = () => {
       id: 'hiace-bus',
       name: 'Toyota HiAce Luxury',
       category: 'Bus',
-      image: 'https://images.unsplash.com/photo-1625916053360-1e5b8e957386?auto=format&fit=crop&w=800&q=80',
+      image: '/images/photo-1625916053360-1e5b8e957386.svg',
       features: ['14 Seater', 'High roof', 'AC', 'Interstate travel'],
       priceRange: 'Low'
     },
@@ -184,7 +184,7 @@ const App: React.FC = () => {
       id: 'lexus-lx',
       name: 'Lexus LX 600',
       category: 'SUV',
-      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
+      image: '/images/photo-1533473359331-0135ef1b58bf.svg',
       features: ['Luxury finish', 'Off-road ready', 'Spacious', 'Quiet cabin'],
       priceRange: 'High'
     }
@@ -243,12 +243,12 @@ const App: React.FC = () => {
   const renderHero = () => (
     <div className="relative bg-brand-black text-white py-24 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80" 
-          alt="Travel Hero" 
-          onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
-          className="w-full h-full object-cover opacity-40 grayscale"
-        />
+            <img 
+              src="/images/photo-1506012787146-f92b2d7d6d96.svg" 
+              alt="Travel Hero" 
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
+              className="w-full h-full object-cover opacity-40 grayscale"
+            />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-transparent"></div>
       </div>
       
@@ -407,7 +407,7 @@ const App: React.FC = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-brand-blue/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500"></div>
             <img 
-              src="https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80" 
+              src="/images/photo-1616432043562-3671ea0e5e85.svg" 
               alt="Delivery Rider" 
               onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
               className="relative rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition duration-500 grayscale hover:grayscale-0"
