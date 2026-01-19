@@ -27,23 +27,23 @@ import AIChat from './components/AIChat';
 const USE_REMOTE_IMAGES = true;
 // Update values here to point to the Unsplash image you prefer for each local asset.
 const IMAGE_FIT_URLS: Record<string, string> = {
-  'photo-1506012787146-f92b2d7d6d96.svg': 'https://source.unsplash.com/1920x1080/?travel,airplane',
-  'photo-1436491865332-7a61a109cc05.svg': 'https://source.unsplash.com/800x600/?flight,airport',
-  'photo-1549673934-297e2501a402.svg': 'https://source.unsplash.com/800x600/?passport,documents',
-    'photo-1587825140708-dfaf72ae4b04.svg': 'https://source.unsplash.com/800x600/?visa,travel',
-    'photo-1550355291-bbee04a92027.svg': 'https://source.unsplash.com/800x600/?car,luxury',
-  'photo-1540962351574-729f633c78f0.svg': 'https://source.unsplash.com/800x600/?chauffeur,car',
-  'photo-1616432043562-3671ea0e5e85.svg': 'https://source.unsplash.com/800x600/?delivery,scooter',
-  'photo-1454165804606-c3d57bc86b40.svg': 'https://source.unsplash.com/800x600/?insurance,travel',
-  'photo-1469854523086-cc02fe5d8800.svg': 'https://source.unsplash.com/800x600/?tour,beach',
+  'photo-1506012787146-f92b2d7d6d96.svg': 'https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=1920&q=80',
+  'photo-1436491865332-7a61a109cc05.svg': 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80',
+  'photo-1549673934-297e2501a402.svg': 'https://images.unsplash.com/photo-1549673934-297e2501a402?auto=format&fit=crop&w=800&q=80',
+    'photo-1587825140708-dfaf72ae4b04.svg': 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80',
+    'photo-1550355291-bbee04a92027.svg': 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80',
+  'photo-1540962351574-729f633c78f0.svg': 'https://images.unsplash.com/photo-1540962351574-729f633c78f0?auto=format&fit=crop&w=800&q=80',
+  'photo-1616432043562-3671ea0e5e85.svg': 'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80',
+  'photo-1454165804606-c3d57bc86b40.svg': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+  'photo-1469854523086-cc02fe5d8800.svg': 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80',
   // fleet images
-  'photo-1621135802920-133df287f89c.svg': 'https://source.unsplash.com/800x600/?supercar',
-  'photo-1618843479313-40f8afb4b4d8.svg': 'https://source.unsplash.com/800x600/?sedan',
-  'toyota-land-cruiser.png': 'https://source.unsplash.com/800x600/?toyota,land%20cruiser',
-  'toyota-hiace-luxury.png': 'https://source.unsplash.com/800x600/?toyota,hiace',
-  'private-jet.png': 'https://source.unsplash.com/800x600/?private,jet',
-  'logistics-delivery.png': 'https://source.unsplash.com/800x600/?delivery,scooter',
-  'photo-1533473359331-0135ef1b58bf.svg': 'https://source.unsplash.com/800x600/?lexus,luxury'
+  'photo-1621135802920-133df287f89c.svg': 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80',
+  'photo-1618843479313-40f8afb4b4d8.svg': 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80',
+  'toyota-land-cruiser.png': 'https://images.unsplash.com/photo-1594502184342-2b54227d870c?auto=format&fit=crop&w=800&q=80',
+  'toyota-hiace-luxury.png': 'https://images.unsplash.com/photo-1625916053360-1e5b8e957386?auto=format&fit=crop&w=800&q=80',
+  'private-jet.png': 'https://images.unsplash.com/photo-1520031441872-265e4ff70366?auto=format&fit=crop&w=800&q=80',
+  'logistics-delivery.png': 'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80',
+  'photo-1533473359331-0135ef1b58bf.svg': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80'
 };
 
 function getImageSrc(localPath: string) {
@@ -277,7 +277,7 @@ const App: React.FC = () => {
     <div className="relative bg-brand-black text-white py-24 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 z-0">
             <img 
-              src="/images/photo-1506012787146-f92b2d7d6d96.svg" 
+              src="/images/private-jet.png" 
               alt="Travel Hero" 
               onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
               className="w-full h-full object-cover opacity-40 grayscale"
@@ -305,14 +305,14 @@ const App: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-
-  const renderServicesGrid = () => (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-brand-black mb-4">Our Services</h2>
-          <div className="w-20 h-1 bg-brand-blue mx-auto rounded"></div>
+    {
+      id: 'flights',
+      title: 'Flight Processing',
+      description: 'Domestic and International flight tickets with best rate guarantees.',
+      icon: <Plane className="w-8 h-8" />,
+      category: 'travel',
+      image: '/placeholder.svg'
+    },
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
              Flight Processing • Passport Processing • Visa Assistance
           </p>
@@ -331,14 +331,14 @@ const App: React.FC = () => {
                   alt={service.title}
                   onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
                   className="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              </div>
-              <div className="p-6 relative flex-grow">
-                 <div className="absolute -top-10 right-6 bg-brand-white p-4 rounded-xl shadow-lg text-brand-blue border border-gray-100 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
-                    {service.icon}
-                 </div>
-                <h3 className="text-xl font-bold text-brand-black mb-3 mt-2">{service.title}</h3>
+                {
+                  id: 'passport',
+                  title: 'Passport Processing',
+                  description: 'Fast-track processing and renewal assistance for international passports.',
+                  icon: <Globe className="w-8 h-8" />,
+                  category: 'travel',
+                  image: '/placeholder.svg'
+                },
                 <p className="text-gray-500 leading-relaxed text-sm mb-4">{service.description}</p>
               </div>
             </div>
@@ -346,14 +346,14 @@ const App: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-
-  const renderFleet = () => (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-brand-black">Premium Fleet</h2>
-          <p className="text-gray-600 mt-2">Luxury vehicles for interstate travel and comfort.</p>
+    {
+      id: 'visa',
+      title: 'Visa Assistance',
+      description: 'Expert guidance for tourist, conference, and business visas.',
+      icon: <FileCheck className="w-8 h-8" />,
+      category: 'travel',
+      image: '/placeholder.svg'
+    },
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -365,14 +365,14 @@ const App: React.FC = () => {
                   alt={car.name} 
                   onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90"
-                />
-                <div className="absolute top-4 right-4 bg-brand-black/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
-                  {car.category}
-                </div>
-              </div>
-              <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold text-brand-black mb-2">{car.name}</h3>
-                <div className="space-y-2 mb-6 flex-grow">
+                {
+                  id: 'cars',
+                  title: 'Luxury Rentals',
+                  description: 'Explore our premium fleet of SUVs, Sedans, and Supercars.',
+                  icon: <CarIcon className="w-8 h-8" />,
+                  category: 'luxury',
+                  image: '/placeholder.svg'
+                },
                    {car.features.map((feature, idx) => (
                      <div key={idx} className="flex items-center text-gray-500 text-sm">
                        <CheckCircle2 className="w-4 h-4 text-brand-lightBlue mr-2 flex-shrink-0" />
@@ -392,14 +392,14 @@ const App: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-
-  const renderLogistics = () => (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-block bg-brand-blue/10 text-brand-blue px-4 py-1 rounded-full text-sm font-semibold mb-6">
+    {
+      id: 'insurance',
+      title: 'Travel Insurance',
+      description: 'Comprehensive travel insurance policies to keep you protected.',
+      icon: <ShieldCheck className="w-8 h-8" />,
+      category: 'travel',
+      image: '/placeholder.svg'
+    },
               Mercury Logistics
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">
@@ -440,18 +440,18 @@ const App: React.FC = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-brand-blue/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500"></div>
             <img 
-              src={'https://images.unsplash.com/photo-1616432043562-3671ea0e5e85?auto=format&fit=crop&w=800&q=80'} 
+              src={'/images/logistics-delivery.png'} 
               alt="Delivery Rider" 
               onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.svg'; }}
               className="relative rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-[1.02] transition duration-500 grayscale hover:grayscale-0"
             />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-
-  const renderContact = () => (
+              id: 'tours',
+              title: 'Tour Packages',
+              description: 'Curated holiday and conference packages tailored to your needs.',
+              icon: <MapPin className="w-8 h-8" />,
+              category: 'travel',
+              image: '/placeholder.svg'
+            }
     <section className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
