@@ -64,7 +64,7 @@ const App: React.FC = () => {
     const body = `Name: ${name}\nService Interest: ${service}\n\nMessage:\n${message}`;
     
     // Primary email for contact
-    const emailTo = "mercurygroups247@gmail.com";
+    const emailTo = "rmgroups247@gmail.com";
     
     // Construct the mailto link
     window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -194,10 +194,10 @@ const App: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center cursor-pointer" onClick={() => setView(ViewState.HOME)}>
             <div className="w-10 h-10 bg-brand-black rounded-lg flex items-center justify-center mr-3 shadow-md">
-              <span className="text-white font-bold text-xl">M</span>
+              <span className="text-white font-bold text-xl">R</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-brand-black tracking-tight">MERCURY GROUPS</h1>
+              <h1 className="text-xl font-bold text-brand-black tracking-tight">R&M GROUPS</h1>
               <p className="text-[10px] text-brand-blue font-semibold tracking-widest uppercase">Global Mobility</p>
             </div>
           </div>
@@ -363,7 +363,7 @@ const App: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-block bg-brand-blue/10 text-brand-blue px-4 py-1 rounded-full text-sm font-semibold mb-6">
-              Mercury Logistics
+              R&M Logistics
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">
               Swift Delivery Services
@@ -424,7 +424,7 @@ const App: React.FC = () => {
                </div>
               <h2 className="text-3xl font-bold mb-6 relative z-10">Get in Touch</h2>
               <p className="text-gray-300 mb-8 relative z-10">
-                Contact Mercury Groups for bookings and inquiries.
+                Contact R&M Groups for bookings and inquiries.
               </p>
               
               <div className="space-y-6 relative z-10">
@@ -432,7 +432,7 @@ const App: React.FC = () => {
                   <Mail className="w-6 h-6 text-brand-lightBlue mt-1" />
                   <div className="flex flex-col">
                     <p className="text-sm text-gray-400">Email</p>
-                    <a href="mailto:mercurygroups247@gmail.com" className="font-medium hover:text-brand-lightBlue transition">mercurygroups247@gmail.com</a>
+                    <a href="mailto:rmgroups247@gmail.com" className="font-medium hover:text-brand-lightBlue transition">rmgroups247@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -511,9 +511,9 @@ const App: React.FC = () => {
           <div>
             <div className="flex items-center mb-6">
               <div className="w-8 h-8 bg-white rounded flex items-center justify-center mr-3">
-                <span className="text-brand-black font-bold text-lg">M</span>
+                <span className="text-brand-black font-bold text-lg">R</span>
               </div>
-              <span className="text-xl font-bold">MERCURY GROUPS</span>
+              <span className="text-xl font-bold">R&M GROUPS</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Flight Booking • Visa Assistance • Luxury Rentals • Logistics
@@ -522,9 +522,9 @@ const App: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-6 text-brand-lightBlue">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li className="hover:text-white cursor-pointer transition">About Us</li>
-              <li className="hover:text-white cursor-pointer transition">Services</li>
-              <li className="hover:text-white cursor-pointer transition">Contact</li>
+              <li onClick={() => setView(ViewState.ABOUT)} className="hover:text-white cursor-pointer transition">About Us</li>
+              <li onClick={() => setView(ViewState.SERVICES)} className="hover:text-white cursor-pointer transition">Services</li>
+              <li onClick={() => setView(ViewState.CONTACT)} className="hover:text-white cursor-pointer transition">Contact</li>
             </ul>
           </div>
           <div>
@@ -536,7 +536,7 @@ const App: React.FC = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Mercury Groups. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} R&M Groups. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -546,7 +546,7 @@ const App: React.FC = () => {
      <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-brand-black mb-4">About Mercury Groups</h2>
+          <h2 className="text-3xl font-bold text-brand-black mb-4">About R&M Groups</h2>
           <p className="max-w-3xl mx-auto text-gray-600">
             We are a full-service travel and logistics agency dedicated to simplifying movement for people and goods. 
             From securing the most complex visas to ensuring your parcel arrives on time, we operate with transparency and speed.

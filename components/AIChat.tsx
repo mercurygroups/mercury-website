@@ -9,7 +9,7 @@ const AIChat: React.FC = () => {
     {
       id: '1',
       role: 'model',
-      text: 'Hello! I am the Mercury Assistant. How can I help you with your travel or logistics needs today?',
+      text: 'Hello! I am the R&M Assistant. How can I help you with your travel or logistics needs today?',
       timestamp: new Date()
     }
   ]);
@@ -74,7 +74,7 @@ const AIChat: React.FC = () => {
           <div className="bg-brand-black p-4 flex justify-between items-center text-white">
             <div className="flex items-center space-x-2">
               <Bot className="w-5 h-5 text-brand-lightBlue" />
-              <span className="font-semibold">Mercury Assistant</span>
+              <span className="font-semibold">R&M Assistant</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-white transition">
               <X className="w-5 h-5" />

@@ -1,80 +1,84 @@
-// Client-side proxy to server-side AI endpoint.
-export const generateTravelResponse = async (userPrompt: string, history: { role: string; text: string }[]): Promise<string> => {
+import { GoogleGenAI } from "@google/genai";
+
+// Initialize AI with the key directly.
+// process.env.API_KEY is replaced by Vite's define plugin at build time.
+// We handle empty keys gracefully to prevent the entire app from crashing on load.
+const apiKey = process.env.API_KEY;
+let ai: GoogleGenAI | null = null;
+
+// Debug logging (will show in browser console)
+console.log("R&M AI Init: API Key present?", !!apiKey);
+
+if (apiKey) {
   try {
-    // If a browser-safe Gemini API key is provided (restricted by origin), prefer direct REST call.
-    const BROWSER_KEY = (window as any).__GEMINI_KEY__;
-    if (BROWSER_KEY) {
-      try {
-        const model = 'gemini-3.1'; // adjust if you want another model
-        const url = `https://generativelanguage.googleapis.com/v1beta2/models/${model}:generateText?key=${BROWSER_KEY}`;
-        const systemInstruction = 'You are Mercury AI, a helpful assistant for Mercury Groups. Keep answers concise.';
+    ai = new GoogleGenAI({ apiKey });
+  } catch (error) {
+    console.error("Failed to initialize GoogleGenAI", error);
+  }
+}
 
-        const body = {
-          prompt: { text: systemInstruction + '\n\n' + userPrompt }
-        };
+export const generateTravelResponse = async (userPrompt: string, history: { role: string; text: string }[]): Promise<string> => {
+  if (!ai) {
+    console.error("GoogleGenAI not initialized. Missing API Key.");
+    return "System Error: The AI service is not configured correctly. Please contact support.";
+  }
 
-        const resp = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body)
-        });
+  try {
+    const model = 'gemini-1.5-flash';
+    
+    // Construct a context-aware prompt
+    const systemInstruction = `
+      You are R&M AI, the intelligent virtual assistant for R&M Groups.
+      R&M Groups is a premium travel and logistics agency.
+      
+      Our Services:
+      1. Flight Processing: Domestic and International bookings.
+      2. Documentation: Passport processing, Travel Insurance, Visa Assistance (Tour & Conference).
+      3. Luxury Travel: Private Jet renting, Luxury Cars and Buses for interstate travel in Nigeria.
+      4. Logistics: Delivery bikes for goods in Lagos, Port Harcourt (PH), and Abuja.
+      
+      Your Tone: Professional, helpful, concise, and polite.
+      Your Goal: Answer user queries about our services, suggest booking options, and provide general travel advice.
+      If a user wants to book, guide them to use the contact form or email rmgroups247@gmail.com.
+      
+      Limit responses to 150 words.
+    `;
 
-        const txt = await resp.text();
-        if (!txt) return 'AI service currently unavailable. Please try again later.';
+    const contents = [
+      ...history.map(msg => ({
+        role: msg.role === 'model' ? 'model' : 'user',
+        parts: [{ text: msg.text }]
+      })),
+      { role: 'user', parts: [{ text: userPrompt }] }
+    ];
 
-        // Parse various possible response shapes from GenAI
-        let parsed: any = null;
-        try { parsed = JSON.parse(txt); } catch (e) { parsed = null; }
-
-        if (parsed) {
-          // common shapes: { candidates:[{output:'...'}] } or { text: '...' } or { output: '...' }
-          const candidateText = parsed.candidates?.[0]?.output || parsed.text || parsed.output || parsed.result?.content?.[0]?.text;
-          if (candidateText) return candidateText;
-        }
-
-        // fallback to raw text
-        return txt;
-      } catch (err) {
-        console.error('Browser Gemini request failed', err);
-        // fallthrough to try server endpoint if configured
-      }
-    }
-
-    const endpoint = (window as any).__AI_ENDPOINT__ || '/api/generate';
-    const resp = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt: userPrompt, history })
+    const response = await ai.models.generateContent({
+      model,
+      contents,
+      config: {
+        systemInstruction,
+      },
     });
 
-    // Always read the response text first to avoid 'Unexpected end of JSON input'
-    const text = await resp.text();
-
-    if (!text) {
-      console.error('AI endpoint returned empty body', { status: resp.status });
-      return `AI service currently unavailable (status ${resp.status}). Please check server logs.`;
+    return response.text || "I'm sorry, I couldn't generate a response at this time.";
+  } catch (error: any) {
+    console.error("Error calling Gemini API:", error);
+    
+    // Check for specific error indications
+    if (error.message || error.toString()) {
+        const msg = (error.message || error.toString()).toLowerCase();
+        
+        if (msg.includes('leaked') || msg.includes('permission_denied')) {
+             return "SYSTEM ALERT: The API Key has been disabled by Google because it was leaked. The administrator must generate a new key in Google AI Studio.";
+        }
+        if (msg.includes('api key') || msg.includes('403')) {
+            return "Connection Error: The provided API key is invalid or has expired. Please check your console for details.";
+        }
+        if (msg.includes('404')) {
+             return "Service Error: The AI model is currently unavailable. Please try again later.";
+        }
     }
-
-    // Try to parse JSON, fallback to using the text directly
-    let parsed: any = null;
-    try {
-      parsed = JSON.parse(text);
-    } catch (err) {
-      // Not JSON — some servers may return plain text; use it as the reply
-      if (resp.ok) return text;
-      console.error('AI server error (non-JSON):', text);
-      return 'AI service currently unavailable. Please try again later.';
-    }
-
-    if (!resp.ok) {
-      console.error('AI server error', { status: resp.status, body: parsed || text });
-      const serverErr = parsed?.error || parsed?.message || text || `status ${resp.status}`;
-      return `AI service currently unavailable (${serverErr})`;
-    }
-
-    return parsed.text || 'No response from AI.';
-  } catch (error) {
-    console.error('Failed to call AI endpoint', error);
-    return 'AI service currently unavailable. Please try again later.';
+    
+    return "I am currently experiencing high traffic. Please try again later or contact support directly.";
   }
 };

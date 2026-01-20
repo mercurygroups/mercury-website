@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mercury-groups-v6';
+const CACHE_NAME = 'rm-groups-v6';
 const urlsToCache = [
   '/',
   '/index.html',
