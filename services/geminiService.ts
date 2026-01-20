@@ -24,7 +24,8 @@ export const generateTravelResponse = async (userPrompt: string, history: { role
   }
 
   try {
-    const model = 'gemini-1.5-flash';
+    // Use the correct model name for the new API
+    const model = ai.getGenerativeModel({ model: 'gemini-1.5-flash' });
     
     // Construct a context-aware prompt
     const systemInstruction = `
@@ -44,23 +45,16 @@ export const generateTravelResponse = async (userPrompt: string, history: { role
       Limit responses to 150 words.
     `;
 
-    const contents = [
-      ...history.map(msg => ({
-        role: msg.role === 'model' ? 'model' : 'user',
-        parts: [{ text: msg.text }]
-      })),
-      { role: 'user', parts: [{ text: userPrompt }] }
-    ];
-
-    const response = await ai.models.generateContent({
-      model,
-      contents,
-      config: {
-        systemInstruction,
-      },
+    // Build conversation history
+    let conversationHistory = systemInstruction + "\n\n";
+    history.forEach(msg => {
+      conversationHistory += `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.text}\n`;
     });
+    conversationHistory += `User: ${userPrompt}\nAssistant:`;
 
-    return response.text || "I'm sorry, I couldn't generate a response at this time.";
+    const result = await model.generateContent(conversationHistory);
+    const response = await result.response;
+    return response.text() || "I'm sorry, I couldn't generate a response at this time.";
   } catch (error: any) {
     console.error("Error calling Gemini API:", error);
     
@@ -74,7 +68,7 @@ export const generateTravelResponse = async (userPrompt: string, history: { role
         if (msg.includes('api key') || msg.includes('403')) {
             return "Connection Error: The provided API key is invalid or has expired. Please check your console for details.";
         }
-        if (msg.includes('404')) {
+        if (msg.includes('404') || msg.includes('not found')) {
              return "Service Error: The AI model is currently unavailable. Please try again later.";
         }
     }
