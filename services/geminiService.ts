@@ -1,10 +1,22 @@
-// The Google GenAI SDK (@google/genai) is server-side and not suitable
-// for bundling into a browser build. To keep the frontend build working
-// we provide a safe client-side fallback that returns a helpful message
-// when the SDK is not available. For full AI functionality, implement
-// a server-side endpoint that calls Google GenAI and call that from the
-// frontend.
+// Client-side proxy to server-side AI endpoint.
+export const generateTravelResponse = async (userPrompt: string, history: { role: string; text: string }[]): Promise<string> => {
+  try {
+    const resp = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: userPrompt, history })
+    });
 
-export const generateTravelResponse = async (_userPrompt: string, _history: { role: string; text: string }[]): Promise<string> => {
-  return "AI is not available in this deployment. For assistance, please email mercurygroups247@gmail.com or use the contact form.";
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      console.error('AI server error', err);
+      return 'AI service currently unavailable. Please try again later.';
+    }
+
+    const data = await resp.json();
+    return data.text || 'No response from AI.';
+  } catch (error) {
+    console.error('Failed to call AI endpoint', error);
+    return 'AI service currently unavailable. Please try again later.';
+  }
 };
